@@ -8,7 +8,7 @@ from tasks import SearchByRangeOfDates, SearchByExactSearch, SearchByRegexPatter
 class WorkLog(AddNewEntry, SearchInExisting, SearchByExactDate,
 	SearchByRangeOfDates, SearchByExactSearch, SearchByRegexPattern):
 
-	def setup(self):
+	def __init__(self):
 		while True:
 			self.to_do = self.what_to_do()
 			self.choose_what_to_do(self.to_do)
@@ -21,7 +21,7 @@ class WorkLog(AddNewEntry, SearchInExisting, SearchByExactDate,
 		print("b) Search in existing entries")
 		print("c) Quit program")
 		self.to_do = input("> ")
-		os.system('clear')
+		self.clear_screen()
 		return self.to_do
 
 
@@ -36,8 +36,8 @@ class WorkLog(AddNewEntry, SearchInExisting, SearchByExactDate,
 			sys.exit(0)
 		else:
 			print("Enter a,b or c!")
-			self.choose_what_to_do(to_do)
+			self.what_to_do()
 
 
-foo = WorkLog()
-foo.setup()
+if __name__ == '__main__':
+	foo = WorkLog()

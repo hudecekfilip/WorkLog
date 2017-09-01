@@ -31,7 +31,7 @@ class AddNewEntry:
             print("Incorrect data format, should be DD/MM/YYYY!")
             input("Press enter to continue")
             self.date_of_the_task()
-        os.system('clear')
+        self.clear_screen()
         return self.task_date
 
 
@@ -42,7 +42,7 @@ class AddNewEntry:
             print("You have to enter the title of the task!")
             input("Press enter to continue")
             self.title_of_the_task()
-        os.system('clear')
+        self.clear_screen()
         return self.task_title
 
 
@@ -55,7 +55,7 @@ class AddNewEntry:
             print("You have to enter the time spent!")
             input("Press enter to continue")
             self.time_spent()
-        os.system('clear')
+        self.clear_screen()
         return int(self.task_time)
 
 
@@ -63,6 +63,13 @@ class AddNewEntry:
         print("Add note (optional). Insert note or press Enter")
         self.task_note = input("> ")
         return self.task_note
+
+
+    def clear_screen(self):
+        if os.name == 'nt':
+            os.system('cls')
+        else:
+            print('\033c')
 
 
 class SearchInExisting:
@@ -96,7 +103,7 @@ class SearchInExisting:
         print("d) Regex Pattern")
         print("e) Return to menu")
         self.search_output = input("> ")
-        os.system('clear')
+        self.clear_screen()
         return self.search_output
 
 
