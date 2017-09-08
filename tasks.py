@@ -92,7 +92,7 @@ class SearchInExisting:
             self.what_to_do()
         else:
             print("You entered the wrong value!")
-            self.search_by_what()
+            self.search_in_existing()
 
 
     def search_in_existing_choose(self):
@@ -311,7 +311,7 @@ class SearchByRegexPattern:
         self.regex = input("< ")
 
 
-    def search_in_list_4(data1, data2):
+    def search_in_list_4(self, data1, data2):
         count = 0
         while count < len(data1):
             for each in data1[count]:
